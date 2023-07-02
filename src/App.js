@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Item from "./components/Item";
 import FavItem from "./components/FavItem";
-import { fetchAnother } from "./actions";
+import { fetchAnother, addFav } from "./actions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function App() {
@@ -16,6 +16,7 @@ export default function App() {
   }, [])
 
   function addToFavs() {
+    dispatch(addFav(current));
   }
 
 
@@ -52,7 +53,7 @@ export default function App() {
               Başka bir tane
             </button>
             <button
-              onClick={addToFavs}
+              onClick={ () => addToFavs()}
               className="select-none px-4 py-2 bg-blue-700 hover:bg-blue-600 text-white"
             >
               Favorilere ekle

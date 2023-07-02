@@ -13,7 +13,8 @@ export const getFavsFromLocalStorage = () => {
 
 export const addFav = (info) => (dispatch) => {
   setTimeout(()=> dispatch(fetchAnother()),2000)
-  return { type: FAV_ADD, payload: info }
+  dispatch({ type:FAV_ADD, payload: info })
+  //return { type: FAV_ADD, payload: info }
 }
 
 export const removeFav = (id) => {
